@@ -1,21 +1,30 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.0.6'
-	id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+	id 'application'
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
-implementation 'org.eclipse.persistence:eclipselink:2.7.8'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
-	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
-	implementation 'mysql:mysql-connector-java:8.0.33'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.4'
+    implementation 'jakarta.platform:jakarta.jakartaee-api:9.1.0'
+    implementation 'jakarta.persistence:jakarta.persistence-api:2.2.3'
+    implementation 'org.hibernate:hibernate-core:5.5.6.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+}
+
+application {
+    mainClassName = 'application.service.Application'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
